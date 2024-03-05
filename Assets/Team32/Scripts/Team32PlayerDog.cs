@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Team32PlayerDog : MicrogameInputEvents
 {
 
     Rigidbody2D rb;
     float moveSpeed;
+    float score;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         moveSpeed = 4;
-        gameObject.GetComponent<Collider2D>().enabled = false;
+        //gameObject.GetComponent<Collider2D>().enabled = false;
         
 
     }
@@ -29,13 +31,23 @@ public class Team32PlayerDog : MicrogameInputEvents
     {
         if (stick.y == 1)
         {
-            gameObject.GetComponent<Collider2D>().enabled = true;
+            //gameObject.GetComponent<Collider2D>().enabled = true;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Debug.Log("hit");
+        Debug.Log("hit");
+        score++;
+        Debug.Log(score);
+
+
+
+    }
+
+    protected override void OnTimesUp()
+    {
+        Debug.Log(score);
     }
 
 }
