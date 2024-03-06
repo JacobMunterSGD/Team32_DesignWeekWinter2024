@@ -14,6 +14,9 @@ public class Team32PlayerDog : MicrogameInputEvents
     private float moveSpeed = 4f;
     private float score = 0f;
 
+        public float leftBoundary = -5.5f; // 左边界
+    public float rightBoundary = 5.5f; // 右边界
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,15 +27,16 @@ public class Team32PlayerDog : MicrogameInputEvents
     private void FixedUpdate()
     {
         float moveBy = stick.x * Time.deltaTime * moveSpeed;
-        if (Mathf.Abs(rb.position.x + moveBy) > 5.5f) return; // 限制移动范围
+        float newXPosition = Mathf.Clamp(rb.position.x + moveBy, leftBoundary, rightBoundary);
+        //if (Mathf.Abs(rb.position.x + moveBy) > 5.5f) return; // 限制移动范围
 
         // 左右移动时调整sprite的垂直方向
         if (moveBy < 0)
-            spriteRenderer.flipX = true; // 向左垂直反转
+            spriteRenderer.flipX = true; // 向左水平反转
         else if (moveBy > 0)
             spriteRenderer.flipX = false; // 向右正常
 
-        rb.MovePosition(rb.position + new Vector2(moveBy, 0));
+        rb.MovePosition(new Vector2(newXPosition, rb.position.y));
     }
 
     void Update()
