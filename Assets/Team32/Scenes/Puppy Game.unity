@@ -428,6 +428,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getInputFrom: 0
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
+  sprite3: {fileID: 0}
+  leftBoundary: -5.5
+  rightBoundary: 5.5
 --- !u!61 &1183239617
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -707,6 +712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getInputFrom: 0
   dog: {fileID: 69430924238096743, guid: 8ceb89b066402a549ac5ea98890e37da, type: 3}
+  player: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
