@@ -2,17 +2,39 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Team32GameManager : MonoBehaviour
+public class Team32GameManager : MicrogameEvents
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public Team32EndCollider EndCollider;
+    SpriteRenderer sr;
+
+    public Sprite winScreen;
+    public Sprite loseScreen;
+
+    private void Start()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (EndCollider.hasWon)
+        {
+            // display win image
+            sr.sprite = winScreen;
+
+        }
+    }
+
+    protected override void OnTimesUp()
+    {
+        Debug.Log("times up");
         
+        if (!EndCollider.hasWon)
+        {
+            //display lose image
+            sr.sprite = loseScreen;
+
+        }
     }
 }

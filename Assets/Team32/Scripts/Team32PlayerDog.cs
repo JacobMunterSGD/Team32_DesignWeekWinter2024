@@ -14,6 +14,8 @@ public class Team32PlayerDog : MicrogameInputEvents
     public CapsuleCollider2D playerCollider;
     public Slider progressSlider;
 
+    public Animator animator;
+
     public Transform Goal;
     private float startDistance;
 
@@ -24,12 +26,16 @@ public class Team32PlayerDog : MicrogameInputEvents
     private float moveSpeed = 4f;
     private float stunDuration = 5f;
 
-    public float leftBoundary = -5.5f;
-    public float rightBoundary = 5.5f;
+    public float leftBoundary;
+    public float rightBoundary;
 
     private bool isStunned = false;
 
-    void Start()
+    public float cooldownAmount;
+
+    float umbrellaCooldown;
+
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -43,6 +49,13 @@ public class Team32PlayerDog : MicrogameInputEvents
         startDistance = Vector3.Distance(transform.position, Goal.position);
         progressSlider.maxValue = startDistance; // 设置 Slider 的最大值
         progressSlider.value = startDistance; // 初始时，玩家与终点的距离是最大的
+    }
+
+    protected override void OnGameStart()
+    {
+        
+
+        umbrellaCooldown = 0;
 
     }
 
@@ -50,6 +63,10 @@ public class Team32PlayerDog : MicrogameInputEvents
     void Update()
     {
         UpdateProgress();
+        if (umbrellaCooldown > -1)
+        {
+            umbrellaCooldown -= Time.deltaTime;
+        }
     }
 
     void UpdateProgress()
@@ -78,11 +95,12 @@ public class Team32PlayerDog : MicrogameInputEvents
     protected override void OnButton1Pressed(InputAction.CallbackContext context)
     {
         // 如果按钮1被按下，切换雨伞碰撞体的激活状态
-        if (!umbrellaCollider.enabled && !isStunned)
+        if (!umbrellaCollider.enabled && !isStunned && umbrellaCooldown <= 0)
         {
             spriteRenderer.sprite = sprite2; // 切换到激活雨伞的Sprite
             umbrellaCollider.enabled = true; // 激活雨伞碰撞体
             playerCollider.enabled = false;
+            animator.SetTrigger("Open");
         }
         else
         {
@@ -91,6 +109,7 @@ public class Team32PlayerDog : MicrogameInputEvents
                 spriteRenderer.sprite = sprite1; // 切换到未激活雨伞的Sprite
                 umbrellaCollider.enabled = false; // 禁用雨伞碰撞体
                 playerCollider.enabled = true;
+                animator.SetTrigger("Close");
             }
                 
         }
@@ -147,6 +166,7 @@ public class Team32PlayerDog : MicrogameInputEvents
             umbrellaCollider.enabled = true;
             playerCollider.enabled = false;
             stunDurationSlider.gameObject.SetActive(false);
+            animator.SetTrigger("Open");
         }
             
     }
@@ -160,13 +180,16 @@ public class Team32PlayerDog : MicrogameInputEvents
             if (!isStunned) // 如果玩家当前不处于静止状态，则启动静止效果
             {
                 StartCoroutine(GetStunned());
+
             }
         }
         else if (umbrellaCollider.enabled && umbrellaCollider.IsTouching(collision.collider)) // 如果雨伞碰撞体激活并且与其他对象碰撞
         {
             umbrellaCollider.enabled = false; // 禁用雨伞碰撞体
+            umbrellaCooldown = cooldownAmount;
             playerCollider.enabled=true;
             spriteRenderer.sprite = sprite1; // 切换到未激活雨伞的Sprite
+            animator.SetTrigger("Close");
         }
     }
 
