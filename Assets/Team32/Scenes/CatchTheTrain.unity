@@ -1230,9 +1230,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1111625773}
   - component: {fileID: 1111625772}
-  - component: {fileID: 1111625771}
   - component: {fileID: 1111625774}
   - component: {fileID: 1111625775}
+  - component: {fileID: 1111625776}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1240,14 +1240,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &1111625771
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111625770}
-  m_Enabled: 0
 --- !u!20 &1111625772
 Camera:
   m_ObjectHideFlags: 0
@@ -1375,6 +1367,21 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   leftLimit: -55
   rightLimit: 0
+--- !u!114 &1111625776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111625770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01bf7c7a6907a3e4b82f088ee6cdc728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstScreenCamera: {fileID: 1111625772}
+  secondScreenCamera: {fileID: 0}
+  currentSplitScreenMode: 0
 --- !u!1 &1116381543
 GameObject:
   m_ObjectHideFlags: 0

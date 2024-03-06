@@ -14,16 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   includeInRandomizer: 1
   teamNumber: 0
-  gameTitle: 
+  gameTitle: Catch The Train or Cats and Dogs
   gameIcon: {fileID: 0}
-  prompt: 
-  singlePlayerScene: {fileID: 102900000, guid: 8196b9d9a20ffd448ac68de1b77f186f, type: 3}
+  prompt: Catch the Train!
+  singlePlayerScene: {fileID: 102900000, guid: bce2cea54f8d5554f88c45aaf646d3e6, type: 3}
   twoPlayerScene: {fileID: 0}
-  controls: []
+  controls:
+  - label: Run
+    primary: 100
+    joiner: 0
+    secondary: 0
+  - label: Umbrella
+    primary: 1
+    joiner: 0
+    secondary: 0
   rightPlayerAltControls: []
-  singlePlayerScenePath: Assets/Team32/Scenes/Puppy Game.unity
+  singlePlayerScenePath: Assets/Team32/Scenes/CatchTheTrain.unity
   twoPlayerScenePath: 
   postgameMessages: []
   bannerImage: {fileID: 0}
-  developerCredits: []
+  developerCredits:
+  - Team 32 - Adrian, Steve, Kevin, Launa, and Jacob
   licensedWorksCredits: []

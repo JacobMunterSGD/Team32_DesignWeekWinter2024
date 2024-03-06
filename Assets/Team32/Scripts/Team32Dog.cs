@@ -11,7 +11,7 @@ public class Team32Dog : MicrogameEvents
         rb = GetComponent<Rigidbody2D>();
 
         //transform.position = new Vector3(Random.Range(-5.5f, 5.5f), 6, 0);
-        rb.velocity = new Vector3(Random.Range(-1.5f, 1.5f), 0, 0);
+        rb.velocity = new Vector3(Random.Range(-2f, 2f), 0, 0);
 
     }
 
