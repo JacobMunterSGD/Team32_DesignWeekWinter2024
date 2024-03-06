@@ -894,6 +894,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 270064330}
+  - {fileID: 1058441281}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &792581127
@@ -1611,6 +1612,7 @@ GameObject:
   - component: {fileID: 1111625774}
   - component: {fileID: 1111625775}
   - component: {fileID: 1111625776}
+  - component: {fileID: 1111625771}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1618,7 +1620,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-
 --- !u!81 &1111625771
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2778,3 +2779,4 @@ SceneRoots:
   - {fileID: 347213527}
   - {fileID: 1254562255}
   - {fileID: 212719898}
+  - {fileID: 1711734405}
