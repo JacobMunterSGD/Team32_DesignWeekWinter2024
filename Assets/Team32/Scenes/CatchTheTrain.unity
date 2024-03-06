@@ -262,7 +262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 484, y: -482}
+  m_AnchoredPosition: {x: 7, y: 297}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &34242721
@@ -816,8 +816,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getInputFrom: 0
-  sprite1: {fileID: 21300000, guid: a61c5eab4c5ed854893849b83b13fd5f, type: 3}
-  sprite2: {fileID: 21300000, guid: ad65396a5dd4f164d8818c77f1b23077, type: 3}
+  sprite1: {fileID: 21300000, guid: de67a9ae62aa71542a713e92244f37c5, type: 3}
+  sprite2: {fileID: 21300000, guid: de67a9ae62aa71542a713e92244f37c5, type: 3}
   sprite3: {fileID: 21300000, guid: 0533a98d89cebb548a9041c1bc1c9481, type: 3}
   umbrellaCollider: {fileID: 792581127}
   playerCollider: {fileID: 792581128}
@@ -1028,7 +1028,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 241, y: -391}
+  m_AnchoredPosition: {x: 30, y: -451}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &809131071
