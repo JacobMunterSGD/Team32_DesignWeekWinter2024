@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Team32Dog : MonoBehaviour
+public class Team32Dog : MicrogameEvents
 {
     Rigidbody2D rb;
     

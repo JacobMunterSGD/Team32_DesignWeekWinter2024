@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MicrogameEvents
 {
     public int maxHealth = 3; 
     private int currentHealth; 
