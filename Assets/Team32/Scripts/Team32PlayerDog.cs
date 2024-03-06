@@ -5,49 +5,54 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Team32PlayerDog : MicrogameInputEvents
 {
+    public Sprite sprite1; // Sprite 1，状态能反弹时使用
+    public Sprite sprite2; // Sprite 2，状态不能反弹时使用
+    public Sprite sprite3; // Sprite 3，被困住时使用
 
-    Rigidbody2D rb;
-    float moveSpeed;
-    float score;
+    private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+    private float moveSpeed = 4f;
+    private float score = 0f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        moveSpeed = 4;
-        //gameObject.GetComponent<Collider2D>().enabled = false;
-        
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = sprite1; // 初始状态为状态能反弹时的sprite
     }
 
     private void FixedUpdate()
     {
         float moveBy = stick.x * Time.deltaTime * moveSpeed;
-        if (Mathf.Abs(rb.position.x + moveBy) > 5.5) return;
-        rb.MovePosition(rb.position + new Vector2(moveBy, 0));
+        if (Mathf.Abs(rb.position.x + moveBy) > 5.5f) return; // 限制移动范围
 
+        // 左右移动时调整sprite的垂直方向
+        if (moveBy < 0)
+            spriteRenderer.flipX = true; // 向左垂直反转
+        else if (moveBy > 0)
+            spriteRenderer.flipX = false; // 向右正常
+
+        rb.MovePosition(rb.position + new Vector2(moveBy, 0));
     }
 
     void Update()
     {
+        // 切换sprite2（状态不能反弹时使用）和sprite3（被困住时使用）
         if (stick.y == 1)
-        {
-            //gameObject.GetComponent<Collider2D>().enabled = true;
-        }
+            spriteRenderer.sprite = sprite2; // 切换为状态不能反弹时的sprite
+        else
+            spriteRenderer.sprite = sprite1; // 切换为状态能反弹时的sprite
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("hit");
+        // 碰撞时增加得分
         score++;
-        Debug.Log(score);
-
-
-
+        Debug.Log("Score: " + score);
     }
 
     protected override void OnTimesUp()
     {
-        Debug.Log(score);
+        Debug.Log("Final Score: " + score);
     }
-
 }
