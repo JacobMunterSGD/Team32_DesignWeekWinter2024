@@ -12,6 +12,10 @@ public class Team32PlayerDog : MicrogameInputEvents
     public Sprite sprite3;
     public PolygonCollider2D umbrellaCollider; // 雨伞的PolygonCollider2D
     public CapsuleCollider2D playerCollider;
+    public Slider progressSlider;
+
+    public Transform Goal;
+    private float startDistance;
 
     public Slider stunDurationSlider; // 在 Inspector 中设置这个引用
 
@@ -34,8 +38,25 @@ public class Team32PlayerDog : MicrogameInputEvents
         // 游戏开始时雨伞碰撞体默认禁用
         umbrellaCollider.enabled = false;
         playerCollider.enabled = true;
+        stunDurationSlider.gameObject.SetActive(false);
+
+        startDistance = Vector3.Distance(transform.position, Goal.position);
+        progressSlider.maxValue = startDistance; // 设置 Slider 的最大值
+        progressSlider.value = startDistance; // 初始时，玩家与终点的距离是最大的
+
     }
-    
+
+
+    void Update()
+    {
+        UpdateProgress();
+    }
+
+    void UpdateProgress()
+    {
+        float currentDistance = Vector3.Distance(transform.position, Goal.position);
+        progressSlider.value = startDistance - currentDistance; // 更新 Slider，反映玩家离目标的剩余距离
+    }
 
     private void FixedUpdate()
     {
@@ -102,6 +123,8 @@ public class Team32PlayerDog : MicrogameInputEvents
             playerCollider.enabled = false;
             spriteRenderer.sprite = sprite3; // 切换至被击中的Sprite
 
+            stunDurationSlider.gameObject.SetActive(true);
+
             while (stunDuration > 0)
             {
                 stunDuration -= Time.deltaTime; // 随着时间减少 stunDuration
@@ -123,6 +146,7 @@ public class Team32PlayerDog : MicrogameInputEvents
             spriteRenderer.sprite = sprite2; // 恢复到常规状态的Sprite
             umbrellaCollider.enabled = true;
             playerCollider.enabled = false;
+            stunDurationSlider.gameObject.SetActive(false);
         }
             
     }
@@ -150,10 +174,12 @@ public class Team32PlayerDog : MicrogameInputEvents
     {
         if (isStunned)
         {
+            stunDurationSlider.gameObject.SetActive(true);
             stunDurationSlider.value = stunDurationSlider.maxValue - stunDuration;
         }
         else
         {
+            stunDurationSlider.gameObject.SetActive(false);
             stunDurationSlider.value = 0; // 如果玩家没有被晕眩，进度条应该为空
         }
     }
