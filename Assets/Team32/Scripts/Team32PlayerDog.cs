@@ -14,6 +14,8 @@ public class Team32PlayerDog : MicrogameInputEvents
     public CapsuleCollider2D playerCollider;
     public Slider progressSlider;
 
+    public SpriteRenderer umbrellaSpriteRenderer;
+
     public Animator animator;
 
     public Transform Goal;
@@ -142,6 +144,11 @@ public class Team32PlayerDog : MicrogameInputEvents
             playerCollider.enabled = false;
             spriteRenderer.sprite = sprite3; // 切换至被击中的Sprite
 
+            if (umbrellaSpriteRenderer != null)
+            {
+                umbrellaSpriteRenderer.enabled = false; // 禁用Umbrella的SpriteRenderer组件
+            }
+
             stunDurationSlider.gameObject.SetActive(true);
 
             while (stunDuration > 0)
@@ -163,6 +170,7 @@ public class Team32PlayerDog : MicrogameInputEvents
             isStunned = false;
             stunDuration = 5f; // 重置静止时间
             spriteRenderer.sprite = sprite2; // 恢复到常规状态的Sprite
+            umbrellaSpriteRenderer.enabled = true;
             umbrellaCollider.enabled = true;
             playerCollider.enabled = false;
             stunDurationSlider.gameObject.SetActive(false);

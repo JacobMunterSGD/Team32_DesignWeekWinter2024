@@ -822,6 +822,7 @@ MonoBehaviour:
   umbrellaCollider: {fileID: 792581127}
   playerCollider: {fileID: 792581128}
   progressSlider: {fileID: 34242721}
+  umbrellaSpriteRenderer: {fileID: 270064329}
   animator: {fileID: 270064328}
   Goal: {fileID: 1014678814}
   stunDurationSlider: {fileID: 809131071}
