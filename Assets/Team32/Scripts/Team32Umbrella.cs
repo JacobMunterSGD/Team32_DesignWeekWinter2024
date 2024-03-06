@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,7 +15,7 @@ public class Team32Umbrella : MicrogameInputEvents
         collider.sharedMaterial = material1;
         materialApplied = true; // Update the flag state
     }
-
+    
     protected override void OnButton1Pressed(InputAction.CallbackContext context)
     {
         Collider2D collider = GetComponent<Collider2D>();

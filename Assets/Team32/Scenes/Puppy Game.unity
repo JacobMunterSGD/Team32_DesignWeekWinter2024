@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 90363143}
   - component: {fileID: 90363142}
   - component: {fileID: 90363145}
+  - component: {fileID: 90363146}
   m_Layer: 0
   m_Name: umbrella
   m_TagString: Untagged
@@ -286,6 +287,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getInputFrom: 0
   material1: {fileID: 6200000, guid: b49fb7129d803c94c8d2179694bdd162, type: 2}
+--- !u!114 &90363146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90363140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fb0d9ac3b93b9245899065c8fb186ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
 --- !u!1 &1183239612
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,6 +428,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getInputFrom: 0
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
+  sprite3: {fileID: 0}
+  leftBoundary: -5.5
+  rightBoundary: 5.5
 --- !u!61 &1183239617
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -693,6 +712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getInputFrom: 0
   dog: {fileID: 69430924238096743, guid: 8ceb89b066402a549ac5ea98890e37da, type: 3}
+  player: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
