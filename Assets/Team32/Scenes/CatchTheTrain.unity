@@ -719,6 +719,7 @@ MonoBehaviour:
   stunDurationSlider: {fileID: 809131071}
   leftBoundary: -60
   rightBoundary: 5
+  cooldownAmount: 1
 --- !u!212 &792581123
 SpriteRenderer:
   m_ObjectHideFlags: 0
