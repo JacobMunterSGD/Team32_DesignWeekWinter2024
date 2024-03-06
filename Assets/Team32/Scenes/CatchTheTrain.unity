@@ -341,7 +341,7 @@ GameObject:
   - component: {fileID: 792581120}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -535,6 +535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getInputFrom: 0
   dog: {fileID: 69430924238096743, guid: d33d2fe7d2be16744963d0522436dd7c, type: 3}
+  player: {fileID: 792581119}
 --- !u!4 &830102687
 Transform:
   m_ObjectHideFlags: 0

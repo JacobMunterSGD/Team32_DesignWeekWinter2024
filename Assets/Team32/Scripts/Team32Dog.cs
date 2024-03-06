@@ -10,7 +10,7 @@ public class Team32Dog : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        transform.position = new Vector3(Random.Range(-5.5f, 5.5f), 6, 0);
+        //transform.position = new Vector3(Random.Range(-5.5f, 5.5f), 6, 0);
         rb.velocity = new Vector3(Random.Range(-1.5f, 1.5f), 0, 0);
 
     }
