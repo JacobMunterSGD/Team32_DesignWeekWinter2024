@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Team32EndCollider : MicrogameEvents
 {
-
-    bool hasWon;
+    
+    public bool hasWon;
 
     protected override void OnGameStart()
     {
@@ -13,17 +13,12 @@ public class Team32EndCollider : MicrogameEvents
         Debug.Log("game starts");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
             Debug.Log("you win!");
+            ReportGameCompletedEarly();
             hasWon = true;
         }
     }
@@ -35,4 +30,7 @@ public class Team32EndCollider : MicrogameEvents
             Debug.Log("you lose!");
         }
     }
+
+
+
 }
