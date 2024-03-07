@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e6012004de5d8b84e8dd06d036a90f0b
+guid: d547c4f41723602408792fda1332e116
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,127 +110,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character_Sprite_Sheet_0
+      name: walkcyclespritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 47
-        height: 98
+        width: 64
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 13, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 472a85a1bddee63499cf47ba7d2b06dd
-      internalID: -2080634635
+      spriteID: 5acc20ea4a2fea84fa3fa2c886987ba9
+      internalID: -168301122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Sprite_Sheet_1
+      name: walkcyclespritesheet_1
       rect:
         serializedVersion: 2
-        x: 52
+        x: 64
         y: 0
-        width: 51
-        height: 100
+        width: 64
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 14, y: 0, z: 4, w: 4}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80779bef7217d114b9c220564ab50024
-      internalID: 1849754268
+      spriteID: 202f491817215834ca05291e397cdce1
+      internalID: -834787212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Sprite_Sheet_2
+      name: walkcyclespritesheet_2
       rect:
         serializedVersion: 2
-        x: 111
+        x: 128
         y: 0
-        width: 43
-        height: 100
+        width: 64
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 14, y: 0, z: 2, w: 4}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3702abd1906ee648842cc67eb557365
-      internalID: -60003843
+      spriteID: cbcdc24f48cbb714a8e10efefae43bc0
+      internalID: 216136149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Sprite_Sheet_3
+      name: walkcyclespritesheet_3
       rect:
         serializedVersion: 2
-        x: 159
+        x: 192
         y: 0
-        width: 53
-        height: 100
+        width: 64
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 16, y: 0, z: 6, w: 1}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f15c844e072c0046b928fe915174267
-      internalID: 257828732
+      spriteID: 67da4db0f25d900449ea64f05d1f8a88
+      internalID: -1393881696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Sprite_Sheet_4
+      name: walkcyclespritesheet_4
       rect:
         serializedVersion: 2
-        x: 212
+        x: 256
         y: 0
-        width: 53
-        height: 100
+        width: 64
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 11, y: 0, z: 5, w: 2}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a423beab0e258746a8322d73ff48362
-      internalID: 863279681
+      spriteID: 358ab706b838b354b8db28b753636e81
+      internalID: 1329617006
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character_Sprite_Sheet_5
+      name: walkcyclespritesheet_5
       rect:
         serializedVersion: 2
-        x: 265
+        x: 320
         y: 0
-        width: 53
-        height: 100
+        width: 64
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 23, y: 0, z: 5, w: 4}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 447072cd5049b364d95cf126cce6a746
-      internalID: -1961769748
+      spriteID: 59dfd8d22e7796b418d140e4545c4c91
+      internalID: 542182939
       vertices: []
       indices: 
       edges: []
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Character_Sprite_Sheet_0: -2080634635
-      Character_Sprite_Sheet_1: 1849754268
-      Character_Sprite_Sheet_2: -60003843
-      Character_Sprite_Sheet_3: 257828732
-      Character_Sprite_Sheet_4: 863279681
-      Character_Sprite_Sheet_5: -1961769748
+      walkcyclespritesheet_0: -168301122
+      walkcyclespritesheet_1: -834787212
+      walkcyclespritesheet_2: 216136149
+      walkcyclespritesheet_3: -1393881696
+      walkcyclespritesheet_4: 1329617006
+      walkcyclespritesheet_5: 542182939
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
