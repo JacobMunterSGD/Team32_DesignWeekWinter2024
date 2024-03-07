@@ -8,6 +8,7 @@ namespace team32
     {
 
         public GameObject dog;
+        public GameObject cat;
         public GameObject player;
 
         float timer;
@@ -52,7 +53,7 @@ namespace team32
                 else if (tempRandom == 2)
                 {
                     //Debug.Log("cat will go here later");
-                    Instantiate(dog, spawnPosition, Quaternion.identity);
+                    Instantiate(cat, spawnPosition, Quaternion.identity);
                 }
 
                 timer = spawnTimerReset; // Reset the generation interval

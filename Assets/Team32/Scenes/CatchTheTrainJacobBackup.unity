@@ -1693,6 +1693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   getInputFrom: 0
   dog: {fileID: 69430924238096743, guid: d33d2fe7d2be16744963d0522436dd7c, type: 3}
+  cat: {fileID: 69430924238096743, guid: e82f4e0f8839f7541b6b02171048e114, type: 3}
   player: {fileID: 792581119}
 --- !u!4 &830102687
 Transform:
