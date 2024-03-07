@@ -26,7 +26,7 @@ MonoBehaviour:
     primary: 100
     joiner: 0
     secondary: 0
-  - label: Umbrella
+  - label: Open Umbrella
     primary: 1
     joiner: 0
     secondary: 0
@@ -35,11 +35,13 @@ MonoBehaviour:
   twoPlayerScenePath: 
   postgameMessages:
   - It might be raining cats and dogs, but at least it won't reindeer!
+  - Be careful not to step in a poodle!
+  - Just remember, stay paw-sitive!
   bannerImage: {fileID: 0}
   developerCredits:
-  - Adrian
+  - Launa
   - Steve
   - Kevin
-  - Launa
   - Jacob
+  - 'Adrian '
   licensedWorksCredits: []
