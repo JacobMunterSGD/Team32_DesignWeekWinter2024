@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace team32
 {
-    public class Team32Train : MonoBehaviour
+    public class Team32Train : MicrogameEvents
     {
 
         float speed = 9;
@@ -12,7 +12,7 @@ namespace team32
 
         void Start()
         {
-
+            transform.position = new Vector2(20, 2.5f);
         }
 
         void FixedUpdate()
@@ -22,7 +22,7 @@ namespace team32
 
             if (speed > 0)
             {
-                transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, 0);
+                transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
                 speed += acceleration * Time.deltaTime;
             }
 

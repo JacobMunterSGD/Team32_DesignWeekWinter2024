@@ -11,6 +11,7 @@ namespace team32
         public AudioSource umbrellaClose;
         public AudioSource rain;
         public AudioSource dogBark;
+        public AudioSource music;
 
 
         private void Start()
@@ -20,6 +21,8 @@ namespace team32
         protected override void OnGameStart()
         {
             //rain.Play();
+            music.Play();
+
         }
 
         public void umbrellaOpenFunction()
