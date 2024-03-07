@@ -96,34 +96,21 @@ public class Team32PlayerDog : MicrogameInputEvents
 
     protected override void OnButton1Pressed(InputAction.CallbackContext context)
     {
-        
-        if (!umbrellaCollider.enabled && !isStunned && umbrellaCooldown <= 0)
+
+        if (isStunned)
         {
-            spriteRenderer.sprite = sprite2; 
-            umbrellaCollider.enabled = true; 
+            ReduceStunTime(); // Reduce stun time when stunned and button 1 is pressed.
+        }
+        else if (!umbrellaCollider.enabled && umbrellaCooldown <= 0)
+        {
+            spriteRenderer.sprite = sprite2;
+            umbrellaCollider.enabled = true;
             playerCollider.enabled = false;
             animator.SetTrigger("Open");
         }
-        else
-        {
-            if ( !isStunned)
-            {
-                spriteRenderer.sprite = sprite1; // ÇÐ»»µ½Î´¼¤»îÓêÉ¡µÄSprite
-                umbrellaCollider.enabled = false; // ½ûÓÃÓêÉ¡Åö×²Ìå
-                playerCollider.enabled = true;
-                animator.SetTrigger("Close");
-            }
-                
-        }
+        // Removed functionality to close the umbrella using button 1
     }
 
-    protected override void OnButton2Pressed(InputAction.CallbackContext context)
-    {
-        if (isStunned)
-        {
-            ReduceStunTime(); // reduce time
-        }
-    }
 
     private void ReduceStunTime()
     {
@@ -169,7 +156,7 @@ public class Team32PlayerDog : MicrogameInputEvents
         {
             isStunned = false;
             stunDuration = 5f; 
-            spriteRenderer.sprite = sprite2; 
+            spriteRenderer.sprite = sprite1; 
             umbrellaSpriteRenderer.enabled = true;
             umbrellaCollider.enabled = true;
             playerCollider.enabled = false;
