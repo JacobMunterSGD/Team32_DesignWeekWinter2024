@@ -24,6 +24,7 @@ namespace team32
             {
                 // display win image
                 sr.sprite = winScreen;
+                
 
             }
         }
