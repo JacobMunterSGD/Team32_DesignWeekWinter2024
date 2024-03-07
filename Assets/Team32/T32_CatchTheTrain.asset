@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d24fbde2c24ab1544bd81b52842e8ec5, type: 3}
-  m_Name: Puppy game
+  m_Name: T32_CatchTheTrain
   m_EditorClassIdentifier: 
   includeInRandomizer: 1
   teamNumber: 32
   gameTitle: Catch The Train
-  gameIcon: {fileID: 21300000, guid: 93729f1bb7066094fb64e41004dc865d, type: 3}
+  gameIcon: {fileID: 21300000, guid: 66328ee2f4d98f845ae5a30626829461, type: 3}
   announcerText: Stop Petting
   announcerAudioFile: Stop Petting -RX10MDc_300-01
   _announcerAudio: {fileID: 8300000, guid: bd9c8ba342b7e214d98c0bb20da14f9c, type: 3}
-  singlePlayerScene: {fileID: 102900000, guid: bce2cea54f8d5554f88c45aaf646d3e6, type: 3}
+  singlePlayerScene: {fileID: 102900000, guid: fa1243e7197678c409e0136890687787, type: 3}
   twoPlayerScene: {fileID: 0}
   controls:
   - label: Run
@@ -31,7 +31,7 @@ MonoBehaviour:
     joiner: 0
     secondary: 0
   rightPlayerAltControls: []
-  singlePlayerScenePath: Assets/Team32/Scenes/CatchTheTrain.unity
+  singlePlayerScenePath: Assets/Team32/Scenes/CatchTheTrainJacobBackup.unity
   twoPlayerScenePath: 
   postgameMessages:
   - It might be raining cats and dogs, but at least it won't reindeer!
@@ -39,6 +39,7 @@ MonoBehaviour:
   - Just remember, stay paw-sitive!
   bannerImage: {fileID: 0}
   developerCredits:
+  - Claudia Rando
   - Launa
   - Steve
   - Kevin
