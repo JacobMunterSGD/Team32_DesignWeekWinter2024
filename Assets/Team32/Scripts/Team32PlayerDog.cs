@@ -5,202 +5,203 @@ using UnityEngine.InputSystem;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
-public class Team32PlayerDog : MicrogameInputEvents
-{
-    public Sprite sprite1; // Sprite when the player has not activated the umbrella
-    public Sprite sprite2; // Sprite when the player activates the umbrella
-    public Sprite sprite3;
-    public PolygonCollider2D umbrellaCollider; // Umbrella PolygonCollider2D
-    public CapsuleCollider2D playerCollider;
-    public Slider progressSlider;
-
-    public SpriteRenderer umbrellaSpriteRenderer;
-
-    public Animator animator;
-
-    public Transform Goal;
-    private float startDistance;
-
-    public Slider stunDurationSlider; 
-
-    private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
-    private float moveSpeed = 4f;
-    private float stunDuration = 5f;
-
-    public float leftBoundary;
-    public float rightBoundary;
-
-    private bool isStunned = false;
-
-    public float cooldownAmount;
-
-    float umbrellaCooldown;
-
-    private void Start()
+namespace team32 {
+    public class Team32PlayerDog : MicrogameInputEvents
     {
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = sprite1;
+        public Sprite sprite1; // Sprite when the player has not activated the umbrella
+        public Sprite sprite2; // Sprite when the player activates the umbrella
+        public Sprite sprite3;
+        public PolygonCollider2D umbrellaCollider; // Umbrella PolygonCollider2D
+        public CapsuleCollider2D playerCollider;
+        public Slider progressSlider;
 
-        // Umbrella colliders are disabled by default at the start of the game
-        umbrellaCollider.enabled = false;
-        playerCollider.enabled = true;
-        stunDurationSlider.gameObject.SetActive(false);
+        public SpriteRenderer umbrellaSpriteRenderer;
 
-        startDistance = Vector3.Distance(transform.position, Goal.position);
-        progressSlider.maxValue = startDistance; 
-        progressSlider.value = startDistance; 
-    }
+        public Animator animator;
 
-    protected override void OnGameStart()
-    {
-        
+        public Transform Goal;
+        private float startDistance;
 
-        umbrellaCooldown = 0;
+        public Slider stunDurationSlider;
 
-    }
+        private Rigidbody2D rb;
+        private SpriteRenderer spriteRenderer;
+        private float moveSpeed = 4f;
+        private float stunDuration = 5f;
 
+        public float leftBoundary;
+        public float rightBoundary;
 
-    void Update()
-    {
-        UpdateProgress();
-        if (umbrellaCooldown > -1)
+        private bool isStunned = false;
+
+        public float cooldownAmount;
+
+        float umbrellaCooldown;
+
+        private void Start()
         {
-            umbrellaCooldown -= Time.deltaTime;
-        }
-    }
+            rb = GetComponent<Rigidbody2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = sprite1;
 
-    void UpdateProgress()
-    {
-        float currentDistance = Vector3.Distance(transform.position, Goal.position);
-        progressSlider.value = startDistance - currentDistance; 
-    }
-
-    private void FixedUpdate()
-    {
-        if (!isStunned)
-        {
-            float moveBy = stick.x * Time.deltaTime * moveSpeed;
-            float newXPosition = Mathf.Clamp(rb.position.x + moveBy, leftBoundary, rightBoundary);
-
-            if (moveBy < 0)
-                spriteRenderer.flipX = true;
-            else if (moveBy > 0)
-                spriteRenderer.flipX = false;
-
-            rb.MovePosition(new Vector2(newXPosition, rb.position.y));
-        }
-            
-    }
-
-    protected override void OnButton1Pressed(InputAction.CallbackContext context)
-    {
-
-        if (isStunned)
-        {
-            ReduceStunTime(); // Reduce stun time when stunned and button 1 is pressed.
-        }
-        else if (!umbrellaCollider.enabled && umbrellaCooldown <= 0)
-        {
-            spriteRenderer.sprite = sprite2;
-            umbrellaCollider.enabled = true;
-            playerCollider.enabled = false;
-            animator.SetTrigger("Open");
-        }
-        // Removed functionality to close the umbrella using button 1
-    }
-
-
-    private void ReduceStunTime()
-    {
-        if (isStunned)
-        {
-            stunDuration = Mathf.Max(0, stunDuration - 1); 
-            UpdateStunDurationSlider(); 
-        }
-    }
-
-    private IEnumerator GetStunned()
-    {
-        if (!isStunned)
-        {
-            isStunned = true;
-            rb.velocity = Vector2.zero; 
+            // Umbrella colliders are disabled by default at the start of the game
             umbrellaCollider.enabled = false;
-            playerCollider.enabled = false;
-            spriteRenderer.sprite = sprite3; 
-
-            if (umbrellaSpriteRenderer != null)
-            {
-                umbrellaSpriteRenderer.enabled = false; 
-            }
-
-            stunDurationSlider.gameObject.SetActive(true);
-
-            while (stunDuration > 0)
-            {
-                stunDuration -= Time.deltaTime; 
-                UpdateStunDurationSlider(); 
-                yield return null; 
-            }
-
-            UnstunPlayer();
-        }
-    }
-
-
-    private void UnstunPlayer()
-    {
-        if (isStunned)
-        {
-            isStunned = false;
-            stunDuration = 5f; 
-            spriteRenderer.sprite = sprite1; 
-            umbrellaSpriteRenderer.enabled = true;
-            umbrellaCollider.enabled = true;
-            playerCollider.enabled = false;
+            playerCollider.enabled = true;
             stunDurationSlider.gameObject.SetActive(false);
-            animator.SetTrigger("Open");
+
+            startDistance = Vector3.Distance(transform.position, Goal.position);
+            progressSlider.maxValue = startDistance;
+            progressSlider.value = startDistance;
         }
-            
-    }
 
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (playerCollider.IsTouching(collision.collider)) // Check if it is a player collision body that is hit
+        protected override void OnGameStart()
         {
-            if (!isStunned) // If the player is not currently stationary, the stationary effect is activated
-            {
-                StartCoroutine(GetStunned());
 
+
+            umbrellaCooldown = 0;
+
+        }
+
+
+        void Update()
+        {
+            UpdateProgress();
+            if (umbrellaCooldown > -1)
+            {
+                umbrellaCooldown -= Time.deltaTime;
             }
         }
-        else if (umbrellaCollider.enabled && umbrellaCollider.IsTouching(collision.collider)) // If the umbrella collision body is active and collides with another object
+
+        void UpdateProgress()
         {
-            umbrellaCollider.enabled = false; 
-            umbrellaCooldown = cooldownAmount;
-            playerCollider.enabled=true;
-            spriteRenderer.sprite = sprite1; 
-            animator.SetTrigger("Close");
+            float currentDistance = Vector3.Distance(transform.position, Goal.position);
+            progressSlider.value = startDistance - currentDistance;
         }
+
+        private void FixedUpdate()
+        {
+            if (!isStunned)
+            {
+                float moveBy = stick.x * Time.deltaTime * moveSpeed;
+                float newXPosition = Mathf.Clamp(rb.position.x + moveBy, leftBoundary, rightBoundary);
+
+                if (moveBy < 0)
+                    spriteRenderer.flipX = true;
+                else if (moveBy > 0)
+                    spriteRenderer.flipX = false;
+
+                rb.MovePosition(new Vector2(newXPosition, rb.position.y));
+            }
+
+        }
+
+        protected override void OnButton1Pressed(InputAction.CallbackContext context)
+        {
+
+            if (isStunned)
+            {
+                ReduceStunTime(); // Reduce stun time when stunned and button 1 is pressed.
+            }
+            else if (!umbrellaCollider.enabled && umbrellaCooldown <= 0)
+            {
+                spriteRenderer.sprite = sprite2;
+                umbrellaCollider.enabled = true;
+                playerCollider.enabled = false;
+                animator.SetTrigger("Open");
+            }
+            // Removed functionality to close the umbrella using button 1
+        }
+
+
+        private void ReduceStunTime()
+        {
+            if (isStunned)
+            {
+                stunDuration = Mathf.Max(0, stunDuration - 1);
+                UpdateStunDurationSlider();
+            }
+        }
+
+        private IEnumerator GetStunned()
+        {
+            if (!isStunned)
+            {
+                isStunned = true;
+                rb.velocity = Vector2.zero;
+                umbrellaCollider.enabled = false;
+                playerCollider.enabled = false;
+                spriteRenderer.sprite = sprite3;
+
+                if (umbrellaSpriteRenderer != null)
+                {
+                    umbrellaSpriteRenderer.enabled = false;
+                }
+
+                stunDurationSlider.gameObject.SetActive(true);
+
+                while (stunDuration > 0)
+                {
+                    stunDuration -= Time.deltaTime;
+                    UpdateStunDurationSlider();
+                    yield return null;
+                }
+
+                UnstunPlayer();
+            }
+        }
+
+
+        private void UnstunPlayer()
+        {
+            if (isStunned)
+            {
+                isStunned = false;
+                stunDuration = 5f;
+                spriteRenderer.sprite = sprite1;
+                umbrellaSpriteRenderer.enabled = true;
+                umbrellaCollider.enabled = true;
+                playerCollider.enabled = false;
+                stunDurationSlider.gameObject.SetActive(false);
+                animator.SetTrigger("Open");
+            }
+
+        }
+
+
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (playerCollider.IsTouching(collision.collider)) // Check if it is a player collision body that is hit
+            {
+                if (!isStunned) // If the player is not currently stationary, the stationary effect is activated
+                {
+                    StartCoroutine(GetStunned());
+
+                }
+            }
+            else if (umbrellaCollider.enabled && umbrellaCollider.IsTouching(collision.collider)) // If the umbrella collision body is active and collides with another object
+            {
+                umbrellaCollider.enabled = false;
+                umbrellaCooldown = cooldownAmount;
+                playerCollider.enabled = true;
+                spriteRenderer.sprite = sprite1;
+                animator.SetTrigger("Close");
+            }
+        }
+
+        private void UpdateStunDurationSlider()
+        {
+            if (isStunned)
+            {
+                stunDurationSlider.gameObject.SetActive(true);
+                stunDurationSlider.value = stunDurationSlider.maxValue - stunDuration;
+            }
+            else
+            {
+                stunDurationSlider.gameObject.SetActive(false);
+                stunDurationSlider.value = 0;
+            }
+        }
+
     }
-
-    private void UpdateStunDurationSlider()
-    {
-        if (isStunned)
-        {
-            stunDurationSlider.gameObject.SetActive(true);
-            stunDurationSlider.value = stunDurationSlider.maxValue - stunDuration;
-        }
-        else
-        {
-            stunDurationSlider.gameObject.SetActive(false);
-            stunDurationSlider.value = 0; 
-        }
-    }
-
-
 }

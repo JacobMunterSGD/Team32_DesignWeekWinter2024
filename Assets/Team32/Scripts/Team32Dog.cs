@@ -2,28 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Team32Dog : MicrogameEvents
+namespace team32
 {
-    Rigidbody2D rb;
-    
-    void Start()
+    public class Team32Dog : MicrogameEvents
     {
-        rb = GetComponent<Rigidbody2D>();
+        Rigidbody2D rb;
 
-        //transform.position = new Vector3(Random.Range(-5.5f, 5.5f), 6, 0);
-        rb.velocity = new Vector3(Random.Range(-2f, 2f), 0, 0);
-
-    }
-
-    private void FixedUpdate()
-    {
-        
-    }
-    void Update()
-    {
-        if (transform.position.y < -10)
+        void Start()
         {
-            Destroy(gameObject);
+            rb = GetComponent<Rigidbody2D>();
+
+            //transform.position = new Vector3(Random.Range(-5.5f, 5.5f), 6, 0);
+            rb.velocity = new Vector3(Random.Range(-2f, 2f), 0, 0);
+
+        }
+
+        private void FixedUpdate()
+        {
+
+        }
+        void Update()
+        {
+            if (transform.position.y < -7)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bb814276f89cf54cbd9835fcedc633d, type: 3}
   m_Name: GamesIndex
   m_EditorClassIdentifier: 
-  <sourcePath>k__BackingField: 
-  <destinationPath>k__BackingField: Imported
-  quickTestSkip: 255
+  enableImport: 0
+  quickTestSkip: 0
   quickTestPlayers: 1
   _avoidRepeatsWithin: 5
   _singlePlayer:

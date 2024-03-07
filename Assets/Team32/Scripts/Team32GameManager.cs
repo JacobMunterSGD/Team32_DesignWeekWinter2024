@@ -2,39 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Team32GameManager : MicrogameEvents
+namespace team32
 {
-
-    public Team32EndCollider EndCollider;
-    SpriteRenderer sr;
-
-    public Sprite winScreen;
-    public Sprite loseScreen;
-
-    private void Start()
+    public class Team32GameManager : MicrogameEvents
     {
-        sr = GetComponent<SpriteRenderer>();
-    }
 
-    private void Update()
-    {
-        if (EndCollider.hasWon)
+        public Team32EndCollider EndCollider;
+        SpriteRenderer sr;
+
+        public Sprite winScreen;
+        public Sprite loseScreen;
+
+        private void Start()
         {
-            // display win image
-            sr.sprite = winScreen;
-
+            sr = GetComponent<SpriteRenderer>();
         }
-    }
 
-    protected override void OnTimesUp()
-    {
-        Debug.Log("times up");
-        
-        if (!EndCollider.hasWon)
+        private void Update()
         {
-            //display lose image
-            sr.sprite = loseScreen;
+            if (EndCollider.hasWon)
+            {
+                // display win image
+                sr.sprite = winScreen;
 
+            }
+        }
+
+        protected override void OnTimesUp()
+        {
+            Debug.Log("times up");
+
+            if (!EndCollider.hasWon)
+            {
+                //display lose image
+                sr.sprite = loseScreen;
+
+            }
         }
     }
 }

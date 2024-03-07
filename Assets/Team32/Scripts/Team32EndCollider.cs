@@ -2,35 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Team32EndCollider : MicrogameEvents
+namespace team32
 {
-    
-    public bool hasWon;
-
-    protected override void OnGameStart()
+    public class Team32EndCollider : MicrogameEvents
     {
-        hasWon = false;
-        Debug.Log("game starts");
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
+        public bool hasWon;
+
+        protected override void OnGameStart()
         {
-            Debug.Log("you win!");
-            ReportGameCompletedEarly();
-            hasWon = true;
+            hasWon = false;
+            Debug.Log("game starts");
         }
-    }
 
-    protected override void OnTimesUp()
-    {
-        if (!hasWon)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            Debug.Log("you lose!");
+            if (collision.tag == "Player")
+            {
+                Debug.Log("you win!");
+                ReportGameCompletedEarly();
+                hasWon = true;
+            }
         }
+
+        protected override void OnTimesUp()
+        {
+            if (!hasWon)
+            {
+                Debug.Log("you lose!");
+            }
+        }
+
+
     }
-
-
-
 }
