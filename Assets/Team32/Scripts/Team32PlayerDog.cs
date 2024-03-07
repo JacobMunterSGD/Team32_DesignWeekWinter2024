@@ -38,8 +38,15 @@ namespace team32 {
 
         float umbrellaCooldown;
 
+        public GameObject buttonAnim;
+        private SpriteRenderer buttonAnimSpriteRenderer;
+
         private void Start()
         {
+
+            buttonAnimSpriteRenderer = buttonAnim.GetComponent<SpriteRenderer>();
+            SetButtonAnimVisibility(false);
+
             rb = GetComponent<Rigidbody2D>();
             spriteRenderer = GetComponent<SpriteRenderer>();
             spriteRenderer.sprite = sprite1;
@@ -131,6 +138,7 @@ namespace team32 {
                 umbrellaCollider.enabled = false;
                 playerCollider.enabled = false;
                 spriteRenderer.sprite = sprite3;
+                SetButtonAnimVisibility(true);
 
                 if (umbrellaSpriteRenderer != null)
                 {
@@ -163,9 +171,22 @@ namespace team32 {
                 playerCollider.enabled = false;
                 stunDurationSlider.gameObject.SetActive(false);
                 animator.SetTrigger("Open");
+                SetButtonAnimVisibility(false);
             }
 
         }
+
+
+        private void SetButtonAnimVisibility(bool visible)
+        {
+            if (buttonAnimSpriteRenderer != null)
+            {
+                Color color = buttonAnimSpriteRenderer.color;
+                color.a = visible ? 1f : 0f; // 根据visible变量设置透明度
+                buttonAnimSpriteRenderer.color = color;
+            }
+        }
+
 
 
 
@@ -202,6 +223,7 @@ namespace team32 {
                 stunDurationSlider.value = 0;
             }
         }
+
 
     }
 }
