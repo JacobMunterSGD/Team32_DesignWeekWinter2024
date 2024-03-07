@@ -1132,6 +1132,7 @@ GameObject:
   - component: {fileID: 792581121}
   - component: {fileID: 792581127}
   - component: {fileID: 792581128}
+  - component: {fileID: 792581129}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -1179,14 +1180,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   getInputFrom: 0
-  sprite1: {fileID: 21300000, guid: de67a9ae62aa71542a713e92244f37c5, type: 3}
-  sprite2: {fileID: 21300000, guid: de67a9ae62aa71542a713e92244f37c5, type: 3}
-  sprite3: {fileID: 21300000, guid: 0533a98d89cebb548a9041c1bc1c9481, type: 3}
+  sprite1: {fileID: 2087786103, guid: 9b8aa3397fa2dda4a977cc5c30dd5c18, type: 3}
+  sprite2: {fileID: 2087786103, guid: 9b8aa3397fa2dda4a977cc5c30dd5c18, type: 3}
+  sprite3: {fileID: 21300000, guid: ae27ab3cc0635a7449f1886373733e97, type: 3}
   umbrellaCollider: {fileID: 792581127}
   playerCollider: {fileID: 792581128}
   progressSlider: {fileID: 34242721}
   umbrellaSpriteRenderer: {fileID: 270064329}
   animator: {fileID: 270064328}
+  PlayerAnimator: {fileID: 792581129}
   Goal: {fileID: 1014678814}
   stunDurationSlider: {fileID: 809131071}
   leftBoundary: -60
@@ -1360,6 +1362,27 @@ CapsuleCollider2D:
   m_Offset: {x: -0.09312921, y: -0.09063448}
   m_Size: {x: 0.19741757, y: 0.94873047}
   m_Direction: 0
+--- !u!95 &792581129
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792581119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea517c7b5626851449f72ad2dc15343f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &809131069
 GameObject:
   m_ObjectHideFlags: 0
