@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d24fbde2c24ab1544bd81b52842e8ec5, type: 3}
-  m_Name: T32_CatchTheTrain
+  m_Name: Puppy game
   m_EditorClassIdentifier: 
   includeInRandomizer: 1
   teamNumber: 32
-  gameTitle: Catch The Train
+  gameTitle: Catch The Train or Cats and Dogs
   gameIcon: {fileID: 0}
-  announcerText: Stop Petting!
-  announcerAudioFile: Stop Petting -RX10MDc_300-01
-  _announcerAudio: {fileID: 8300000, guid: bd9c8ba342b7e214d98c0bb20da14f9c, type: 3}
-  singlePlayerScene: {fileID: 102900000, guid: ad7c74e8eca633f4f997b2ee99a4d674, type: 3}
+  announcerText: Catch the Train!
+  announcerAudioFile: 
+  _announcerAudio: {fileID: 0}
+  singlePlayerScene: {fileID: 102900000, guid: bce2cea54f8d5554f88c45aaf646d3e6, type: 3}
   twoPlayerScene: {fileID: 0}
   controls:
   - label: Run
@@ -31,11 +31,10 @@ MonoBehaviour:
     joiner: 0
     secondary: 0
   rightPlayerAltControls: []
-  singlePlayerScenePath: Assets/Team32/Scenes/ThursdayBackupJacob.unity
+  singlePlayerScenePath: Assets/Team32/Scenes/CatchTheTrain.unity
   twoPlayerScenePath: 
-  postgameMessages:
-  - It might be raining cats and dogs, but at least it won't reindeer!
+  postgameMessages: []
   bannerImage: {fileID: 0}
   developerCredits:
-  - Adrian, Steve, Kevin, Launa, and Jacob
+  - Team 32 - Adrian, Steve, Kevin, Launa, and Jacob
   licensedWorksCredits: []
