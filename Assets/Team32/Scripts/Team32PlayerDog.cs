@@ -41,6 +41,10 @@ namespace team32 {
         public GameObject buttonAnim;
         private SpriteRenderer buttonAnimSpriteRenderer;
 
+        public Team32AudioManager audioManager;
+
+        public Team32EndCollider endCollider;
+
         private void Start()
         {
 
@@ -59,12 +63,14 @@ namespace team32 {
             startDistance = Vector3.Distance(transform.position, Goal.position);
             progressSlider.maxValue = startDistance;
             progressSlider.value = startDistance;
+
+            StartCoroutine(GetStunned());
         }
 
         protected override void OnGameStart()
         {
 
-
+            
             umbrellaCooldown = 0;
 
         }
@@ -115,6 +121,8 @@ namespace team32 {
                 umbrellaCollider.enabled = true;
                 playerCollider.enabled = false;
                 animator.SetTrigger("Open");
+                audioManager.umbrellaOpenFunction();
+
             }
             // Removed functionality to close the umbrella using button 1
         }
@@ -139,10 +147,12 @@ namespace team32 {
                 playerCollider.enabled = false;
                 spriteRenderer.sprite = sprite3;
                 SetButtonAnimVisibility(true);
+                audioManager.dogBarkFunction();
 
                 if (umbrellaSpriteRenderer != null)
                 {
                     umbrellaSpriteRenderer.enabled = false;
+                    audioManager.umbrellaCloseFunction();
                 }
 
                 stunDurationSlider.gameObject.SetActive(true);
@@ -172,6 +182,8 @@ namespace team32 {
                 stunDurationSlider.gameObject.SetActive(false);
                 animator.SetTrigger("Open");
                 SetButtonAnimVisibility(false);
+                audioManager.umbrellaOpenFunction();
+                audioManager.dogBarkStop();
             }
 
         }
@@ -192,6 +204,8 @@ namespace team32 {
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            if (endCollider.isGameOver) return;
+
             if (playerCollider.IsTouching(collision.collider)) // Check if it is a player collision body that is hit
             {
                 if (!isStunned) // If the player is not currently stationary, the stationary effect is activated
@@ -207,6 +221,7 @@ namespace team32 {
                 playerCollider.enabled = true;
                 spriteRenderer.sprite = sprite1;
                 animator.SetTrigger("Close");
+                audioManager.umbrellaCloseFunction();
             }
         }
 

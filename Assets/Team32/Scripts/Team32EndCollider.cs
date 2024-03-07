@@ -8,18 +8,20 @@ namespace team32
     {
 
         public bool hasWon;
+        public bool isGameOver;
 
         protected override void OnGameStart()
         {
             hasWon = false;
-            Debug.Log("game starts");
+            //Debug.Log("game starts");
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.tag == "Player")
             {
-                Debug.Log("you win!");
+                //Debug.Log("you win!");
+                isGameOver = true;
                 ReportGameCompletedEarly();
                 hasWon = true;
             }
@@ -29,7 +31,8 @@ namespace team32
         {
             if (!hasWon)
             {
-                Debug.Log("you lose!");
+                //Debug.Log("you lose!");
+                isGameOver = true;
             }
         }
 

@@ -30,7 +30,7 @@ namespace team32
 
         protected override void OnTimesUp()
         {
-            Debug.Log("times up");
+            //Debug.Log("times up");
 
             if (!EndCollider.hasWon)
             {
