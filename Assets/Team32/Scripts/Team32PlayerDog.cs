@@ -43,6 +43,8 @@ namespace team32 {
 
         public Team32AudioManager audioManager;
 
+        public Team32EndCollider endCollider;
+
         private void Start()
         {
 
@@ -202,6 +204,8 @@ namespace team32 {
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            if (endCollider.isGameOver) return;
+
             if (playerCollider.IsTouching(collision.collider)) // Check if it is a player collision body that is hit
             {
                 if (!isStunned) // If the player is not currently stationary, the stationary effect is activated
