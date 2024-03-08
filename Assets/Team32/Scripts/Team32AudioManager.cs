@@ -12,6 +12,7 @@ namespace team32
         public AudioSource rain;
         public AudioSource dogBark;
         public AudioSource music;
+        public AudioSource train;
 
 
         private void Start()
@@ -28,6 +29,10 @@ namespace team32
         public void umbrellaOpenFunction()
         {
             umbrellaOpen.Play();
+        }
+        public void trainFunction()
+        {
+            train.Play();
         }
 
         public void umbrellaCloseFunction()
@@ -48,6 +53,11 @@ namespace team32
         public void dogBarkStop()
         {
             dogBark.Stop();
+        }
+
+        public void trainStop()
+        {
+            train.Stop();
         }
     }
 }
